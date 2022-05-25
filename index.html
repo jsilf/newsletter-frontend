@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="sv">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="./style/style.css" />
+    <title>Newsletter</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo"></div>
+
+      <nav>
+        <div class="burger"></div>
+        <div class="burger"></div>
+        <div class="burger"></div>
+      </nav>
+    </header>
+    <div class="bg"></div>
+    <main>
+      <h1>Nyhetsbrevet deluxe</h1>
+      <section id="loginContainer">
+        <div id="loginWrap">
+          <h2>Logga in här</h2>
+          <label for="username">Användarnamn</label>
+          <input
+            type="text"
+            name="username"
+            id="username"
+            placeholder="Användarnamn"
+          />
+          <label for="password">Lösenord</label>
+          <input
+            type="password"
+            name="password"
+            id="password"
+            placeholder="Lösenord"
+          />
+          <div id="errormsg"></div>
+          <button id="loginBtn">Logga in</button>
+          <h3>Prenumerera på vårt nyhetsbrev</h3>
+          <input type="checkbox" name="subscribe" id="subscribe" />
+          <label for="Ja">Ja, tack</label>
+
+          <button id="addBtn">Lägg till ny användare</button>
+        </div>
+      </section>
+
+      <section id="welcomePage">
+        <h3></h3>
+        <ul id="users"></ul>
+      </section>
+      <section id="loggedinPage">
+        <h3>Välkommen till Nyhetsbrevet deluxe, du är nu inloggad.</h3>
+        <p id="changeSubscription">Jag vill ändra min prenumeration</p>
+        <input type="checkbox" name="subscribe" id="loggedInsubscribe" />
+        <button id="saveChange">Spara ändringar</button>
+      </section>
+    </main>
+    <!-- <footer>
+      <p>Acceptera <button>cookies</button></p>
+    </footer> -->
+  </body>
+</html>

@@ -1,0 +1,120 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  color: #faf8f2;
+
+  header {
+    background-color: #faf8f2;
+    color: black;
+    box-shadow: #894b64 4px 4px 6px;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-content: center;
+
+    .logo {
+      background-color: #faf8f2;
+      box-shadow: inset black 1px 3px 8px 5px;
+      border-radius: 50px;
+      width: 50px;
+      height: 50px;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+      margin: 0;
+      padding: 0;
+    }
+
+    .burger {
+      border: 2px solid #faf8f2;
+      border-radius: 20px;
+      background-color: black;
+      width: 40px;
+      height: 6px;
+      cursor: pointer;
+    }
+  }
+
+  .bg {
+    z-index: -1;
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    background-color: #faf8f2;
+    background-image: linear-gradient(to bottom right, #c06b37, #894b64);
+  }
+
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    #welcomePage {
+      z-index: -1;
+      position: fixed;
+      margin-top: 3rem;
+      height: 100vh;
+      width: 100vw;
+      h3,
+      ul {
+        margin: 5rem;
+      }
+    }
+    #loggedinPage {
+      margin: 0;
+      // z-index: -1;
+      // position: fixed;
+      // margin: 5rem 2rem;
+      // height: 100vh;
+      // width: 100vw;
+    }
+
+    #loginContainer {
+      box-shadow: #894b64 2px 2px 4px 6px;
+      // align-self: flex-end;
+      margin: 0;
+      margin-top: 2rem;
+      // margin-right: 3rem;
+      padding: 2rem;
+
+      #loginWrap {
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+
+        #errormsg {
+          color: black;
+          font-weight: 700;
+        }
+
+        input {
+          margin: 1rem 0;
+          background-color: #faf8f2;
+          border-radius: 15px;
+          padding: 0.5rem 0.2rem;
+          border: none;
+        }
+      }
+    }
+    button {
+      margin: 1rem 0;
+      background-color: #faf8f2;
+      border-radius: 15px;
+      padding: 0.5rem 0.2rem;
+      border: none;
+      background-color: #894b64;
+      color: #faf8f2;
+      cursor: pointer;
+    }
+    button:hover {
+      box-shadow: #faf8f2 1px 2px 4px;
+    }
+  }
+  footer {
+    padding: 1rem;
+  }
+}
