@@ -10,16 +10,14 @@ window.addEventListener("load", async () => {
 let loginBtn = document.getElementById("loginBtn");
 let saveChanged = document.getElementById("saveChange");
 let addBtn = document.getElementById("addBtn");
-//inputs
 let usernameInput = document.getElementById("username");
 let passwordInput = document.getElementById("password");
 let subscribe = document.getElementById("subscribe");
 let loggedInsubscribe = document.getElementById("loggedInsubscribe");
-//loginwrapper och meddelande "fel inlogg"
+let changeSubscription = document.getElementById("changeSubscription");
 let loginWrap = document.getElementById("loginWrap");
 let loginContainer = document.getElementById("loginContainer");
 let errorMsg = document.getElementById("errormsg");
-//views
 let loggedInView = document.getElementById("loggedinPage");
 let welcomePage = document.getElementById("welcomePage");
 
@@ -30,6 +28,7 @@ errorMsg.append(msg);
 /* LOGGA IN */
 //////////////
 loginBtn.addEventListener("click", async (e) => {
+  e.preventDefault();
   try {
     //Inputvärdet
     usernameVal = usernameInput.value;
@@ -51,9 +50,9 @@ loginBtn.addEventListener("click", async (e) => {
     msg.innerText = "Fel inlogg, försök igen";
   }
 
-  let userStorage = localStorage.getItem("userId");
+  let savedUserId = localStorage.getItem("userId");
 
-  if (userStorage) {
+  if (savedUserId) {
     console.log("Inloggning stämmer");
     loggedInPage();
   } else {
@@ -76,27 +75,27 @@ async function addNewUser() {
     } else {
       subscribeVal = false;
     }
-
     //POST
     let body = {
       username: usernameVal,
       password: passwordVal,
       subscribed: subscribeVal,
     };
-    let status = await makeRequest(
+    let response = await makeRequest(
       "http://localhost:5000/api/users/add",
       "POST",
       body
     );
-    msg.innerText = "Sparad användare";
-    console.log(status);
+    console.log(response);
+    msg.innerText = response;
   } catch (err) {
-    msg.innerText = "Kunde inte spara ny användare, försök igen";
+    console.log(err);
+    msg.innerText = "Något har blivit fel..";
   }
 }
 /* LÄGGA TILL NY ANVÄNDARE KNAPP */
 addBtn.addEventListener("click", async (e) => {
-  e.preventDefault();
+  // e.preventDefault();
   addNewUser();
 });
 
@@ -120,6 +119,7 @@ function loggedInPage() {
 
   //Logga ut
   logoutBtn.addEventListener("click", async (e) => {
+    e.preventDefault();
     //ladda om sidan och rensa localstorage
     logoutBtn.remove();
     location.reload();
@@ -132,8 +132,10 @@ function loggedInPage() {
 
 /* ÄNDRA PRENUMERATION */
 saveChanged.addEventListener("click", async (e) => {
+  e.preventDefault();
   changeUserSubscription();
 });
+
 async function changeUserSubscription() {
   try {
     let userId = localStorage.getItem("userId");
@@ -156,15 +158,13 @@ async function changeUserSubscription() {
       isLoggedIn: true,
     };
 
-    console.log(body);
-
-    let status = await makeRequest(
+    let response = await makeRequest(
       "http://localhost:5000/api/users/",
       "PUT",
       body
     );
-    console.log(status);
-    alert("Ändringen sparad");
+    console.log(response);
+    changeSubscription.innerText = response;
   } catch (err) {
     console.log(err);
     alert("Kunde inte ändra prenumeration");
