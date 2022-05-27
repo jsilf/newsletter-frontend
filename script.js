@@ -94,7 +94,7 @@ async function addNewUser() {
     msg.innerText = response;
   } catch (err) {
     console.log(err);
-    msg.innerText = "Något har blivit fel..";
+    msg.innerText = response;
   }
 }
 
