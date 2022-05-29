@@ -40,7 +40,7 @@ loginBtn.addEventListener("click", async (e) => {
     };
     //POST autentisering inlogg
     let response = await makeRequest(
-      "http://localhost:5000/api/users/login",
+      "http://localhost:3000/api/users/login",
       "POST",
       body
     );
@@ -86,7 +86,7 @@ async function addNewUser() {
     };
     //POST ny användare
     let response = await makeRequest(
-      "http://localhost:5000/api/users/add",
+      "http://localhost:3000/api/users/add",
       "POST",
       body
     );
@@ -153,7 +153,7 @@ async function changeUserSubscription() {
     };
     //PUT ändra prenumeration
     let response = await makeRequest(
-      "http://localhost:5000/api/users/",
+      "http://localhost:3000/api/users/",
       "PUT",
       body
     );
